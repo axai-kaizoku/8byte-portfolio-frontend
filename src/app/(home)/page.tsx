@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
 import rawData from "@/lib/mock/data.json";
+import { ChartPieLabelList } from "./_components/chart";
 
 export default function HomePage() {
   const { data: mockData } = useQuery({
@@ -22,6 +23,14 @@ export default function HomePage() {
 
   const data = rawData.sectors.map((val) => val.holdings).flat(1);
 
+  const chartData = rawData.sectors.map((sector) => {
+    return {
+      sectorName: sector.sectorName,
+      totalPresentValue: sector.totalPresentValue,
+      totalInvestment: sector.totalInvestment,
+      gainLossPercentage: sector.gainLossPercentage,
+    };
+  });
   return (
     <main className="min-h-screen h-full max-w-7xl mx-auto p-20">
       <h1 className="text-3xl font-semibold">Portfolio Table</h1>
@@ -29,7 +38,9 @@ export default function HomePage() {
         <DataTable columns={columns} data={data} />
       </div>
 
-      <div></div>
+      <div>
+        <ChartPieLabelList chartData={chartData} />
+      </div>
     </main>
   );
 }

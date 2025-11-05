@@ -52,6 +52,7 @@ export const columns: ColumnDef<Holding>[] = [
     header: "Name",
     cell: ({ row }) => {
       const stockName: string = row.getValue("stockName") ?? "-";
+      const url = `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX${stockName}`;
       return (
         <a href={url} target="_blank" rel="noopener noreferrer">
           {stockName}
