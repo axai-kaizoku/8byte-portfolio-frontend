@@ -1,0 +1,180 @@
+{
+  "sectors": [
+    {
+      "sectorName": "Energy",
+      "totalInvestment": 24005,
+      "totalPresentValue": 14731,
+      "gainLoss": -9274,
+      "gainLossPercentage": -38.63361799625078,
+      "holdings": [
+        {
+          "id": "5b00e071a989db3ca7cb229a19ea3ba2",
+          "stockSymbol": "RELIANCE.NS",
+          "stockName": "Reliance Industries",
+          "exchange": "NSE",
+          "sectorName": "Energy",
+          "purchasePrice": 2400.5,
+          "quantity": 10,
+          "investment": 24005,
+          "portfolioPercentage": 9.754065887181154,
+          "cmp": 1473.1,
+          "presentValue": 14731,
+          "gainLoss": -9274,
+          "gainLossPercentage": -38.63361799625078,
+          "peRatio": null,
+          "latestEarnings": null
+        }
+      ]
+    },
+    {
+      "sectorName": "Technology",
+      "totalInvestment": 88750,
+      "totalPresentValue": 81550.5,
+      "gainLoss": -7199.5,
+      "gainLossPercentage": -8.112112676056338,
+      "holdings": [
+        {
+          "id": "c1c23e15ff30453580777bb7269fa7c0",
+          "stockSymbol": "TCS.NS",
+          "stockName": "Tata Consultancy Services",
+          "exchange": "NSE",
+          "sectorName": "Technology",
+          "purchasePrice": 3500,
+          "quantity": 15,
+          "investment": 52500,
+          "portfolioPercentage": 21.3325748417834,
+          "cmp": 2990.2,
+          "presentValue": 44853,
+          "gainLoss": -7647,
+          "gainLossPercentage": -14.565714285714284,
+          "peRatio": null,
+          "latestEarnings": null
+        },
+        {
+          "id": "54987548d20c884eb18080a1df77a548",
+          "stockSymbol": "INFY.NS",
+          "stockName": "Infosys",
+          "exchange": "NSE",
+          "sectorName": "Technology",
+          "purchasePrice": 1450,
+          "quantity": 25,
+          "investment": 36250,
+          "portfolioPercentage": 14.729635009802827,
+          "cmp": 1467.9,
+          "presentValue": 36697.5,
+          "gainLoss": 447.5,
+          "gainLossPercentage": 1.2344827586206897,
+          "peRatio": 20.77,
+          "latestEarnings": 19687000000
+        }
+      ]
+    },
+    {
+      "sectorName": "Financials",
+      "totalInvestment": 84722.5,
+      "totalPresentValue": 98116,
+      "gainLoss": 13393.5,
+      "gainLossPercentage": 15.808669479772197,
+      "holdings": [
+        {
+          "id": "fd3b7f24e0bdcbb1a39d2dc529fc2a58",
+          "stockSymbol": "HDFCBANK.NS",
+          "stockName": "HDFC Bank",
+          "exchange": "NSE",
+          "sectorName": "Financials",
+          "purchasePrice": 1650.75,
+          "quantity": 20,
+          "investment": 33015,
+          "portfolioPercentage": 13.415142064790079,
+          "cmp": 985.25,
+          "presentValue": 19705,
+          "gainLoss": -13310,
+          "gainLossPercentage": -40.315008329547176,
+          "peRatio": null,
+          "latestEarnings": null
+        },
+        {
+          "id": "d86e2e02c697eaacf76f5b2504b7be99",
+          "stockSymbol": "ICICIBANK.NS",
+          "stockName": "ICICI Bank",
+          "exchange": "NSE",
+          "sectorName": "Financials",
+          "purchasePrice": 950.25,
+          "quantity": 30,
+          "investment": 28507.5,
+          "portfolioPercentage": 11.583588139088388,
+          "cmp": 1336.9,
+          "presentValue": 40107,
+          "gainLoss": 11599.5,
+          "gainLossPercentage": 40.68929229150224,
+          "peRatio": null,
+          "latestEarnings": null
+        },
+        {
+          "id": "0d62a20bd36447736c5409dde24dffca",
+          "stockSymbol": "SBIN.NS",
+          "stockName": "State Bank of India",
+          "exchange": "NSE",
+          "sectorName": "Financials",
+          "purchasePrice": 580,
+          "quantity": 40,
+          "investment": 23200,
+          "portfolioPercentage": 9.426966406273808,
+          "cmp": 957.6,
+          "presentValue": 38304,
+          "gainLoss": 15104,
+          "gainLossPercentage": 65.10344827586206,
+          "peRatio": null,
+          "latestEarnings": null
+        }
+      ]
+    },
+    {
+      "sectorName": "Consumer",
+      "totalInvestment": 48625,
+      "totalPresentValue": 49793.399999999994,
+      "gainLoss": 1168.3999999999942,
+      "gainLossPercentage": 2.4028791773778804,
+      "holdings": [
+        {
+          "id": "d4d3012915c5c6b84650b55e58cfc84a",
+          "stockSymbol": "HINDUNILVR.NS",
+          "stockName": "Hindustan Unilever",
+          "exchange": "NSE",
+          "sectorName": "Consumer",
+          "purchasePrice": 2300,
+          "quantity": 12,
+          "investment": 27600,
+          "portfolioPercentage": 11.214839345394703,
+          "cmp": 2445.7,
+          "presentValue": 29348.399999999998,
+          "gainLoss": 1748.3999999999978,
+          "gainLossPercentage": 6.334782608695644,
+          "peRatio": null,
+          "latestEarnings": null
+        },
+        {
+          "id": "342b8560babf875f20e672d374ec27d7",
+          "stockSymbol": "ITC.NS",
+          "stockName": "ITC Limited",
+          "exchange": "NSE",
+          "sectorName": "Consumer",
+          "purchasePrice": 420.5,
+          "quantity": 50,
+          "investment": 21025,
+          "portfolioPercentage": 8.54318830568564,
+          "cmp": 408.9,
+          "presentValue": 20445,
+          "gainLoss": -580,
+          "gainLossPercentage": -2.7586206896551726,
+          "peRatio": null,
+          "latestEarnings": null
+        }
+      ]
+    }
+  ],
+  "totalInvestment": 246102.5,
+  "totalPresentValue": 244190.9,
+  "totalGainLoss": -1911.6000000000058,
+  "totalGainLossPercentage": -0.776749525096253
+}

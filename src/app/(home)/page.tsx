@@ -1,0 +1,35 @@
+"use client";
+
+import { fetchUsers, getStockData } from "@/server/portfolioActions";
+import { useQuery } from "@tanstack/react-query";
+import { DataTable } from "./data-table";
+import { columns } from "./columns";
+import rawData from "@/lib/mock/data.json";
+
+export default function HomePage() {
+  const { data: mockData } = useQuery({
+    queryKey: ["users"],
+    queryFn: fetchUsers,
+  });
+
+  const { data: stockData } = useQuery({
+    queryKey: ["stock"],
+    queryFn: getStockData,
+  });
+  // if (data?.error) {
+  //   return <main>An error occured; Error: {data.message}</main>;
+  // }
+
+  const data = rawData.sectors.map((val) => val.holdings).flat(1);
+
+  return (
+    <main className="min-h-screen h-full max-w-7xl mx-auto p-20">
+      <h1 className="text-3xl font-semibold">Portfolio Table</h1>
+      <div className="container mx-auto py-10">
+        <DataTable columns={columns} data={data} />
+      </div>
+
+      <div></div>
+    </main>
+  );
+}
