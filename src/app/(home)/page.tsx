@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ChartPieLabelList } from "./_components/chart";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function HomePage() {
   const {
@@ -25,12 +26,10 @@ export default function HomePage() {
 
   const data = stockData?.data?.sectors.flatMap((val) => val.holdings) ?? [];
 
-  const chartData = rawData.sectors.map((sector) => {
+  const chartData = stockData?.data?.sectors.map((sector) => {
     return {
       sectorName: sector.sectorName,
-      totalPresentValue: sector.totalPresentValue,
       totalInvestment: sector.totalInvestment,
-      gainLossPercentage: sector.gainLossPercentage,
     };
   });
 
@@ -58,39 +57,59 @@ export default function HomePage() {
         <div className="space-y-4">
           <div className="bg-card rounded-lg border border-border p-6 shadow-sm">
             <p className="text-sm text-muted-foreground mb-2">Total Investment</p>
-            <p className="text-2xl font-bold text-foreground">
-              {`₹ ${formatNumber(stockData?.data?.totalInvestment)}`}
-            </p>
+            <span className="text-2xl font-bold text-foreground">
+              {isLoading ? (
+                <Skeleton className="w-40 h-10" />
+              ) : (
+                <>{`₹ ${formatNumber(stockData?.data?.totalInvestment)}`}</>
+              )}
+            </span>
           </div>
           <div className="bg-card rounded-lg border border-border p-6 shadow-sm">
             <p className="text-sm text-muted-foreground mb-2">Total Gain/Loss</p>
             <div className="space-y-1">
-              <p
+              <span
                 className={cn(
                   `text-2xl font-bold`,
                   stockData?.data?.totalGainLoss >= 0 ? "text-green-600" : "text-red-600"
                 )}
               >
-                {`₹ ${formatNumber(stockData?.data?.totalGainLoss)}`}
-              </p>
-              <p
+                {isLoading ? (
+                  <Skeleton className="w-32 h-10" />
+                ) : (
+                  <>{`₹ ${formatNumber(stockData?.data?.totalGainLoss)}`}</>
+                )}
+              </span>
+              <span
                 className={cn(
                   `text-sm font-medium`,
                   stockData?.data?.totalGainLossPercentage >= 0 ? "text-green-600" : "text-red-600"
                 )}
               >
-                {stockData?.data?.totalGainLossPercentage >= 0 ? "↑" : "↓"}{" "}
-                {stockData?.data?.totalGainLossPercentage?.toFixed(2)}%
-              </p>
+                {isLoading ? (
+                  <Skeleton className="w-20 h-5" />
+                ) : (
+                  <>
+                    {stockData?.data?.totalGainLossPercentage >= 0 ? "↑" : "↓"}{" "}
+                    {stockData?.data?.totalGainLossPercentage?.toFixed(2)}%
+                  </>
+                )}
+              </span>
             </div>
           </div>
           <div className="bg-card rounded-lg border border-border p-6 shadow-sm">
             <p className="text-sm text-muted-foreground mb-2">Holdings</p>
-            <p className="text-2xl font-bold text-foreground">
-              {stockData?.data?.sectors.reduce((acc, sector) => {
-                return acc + sector?.holdings?.length;
-              }, 0)}
-            </p>
+            <span className="text-2xl font-bold text-foreground">
+              {isLoading ? (
+                <Skeleton className="w-14 h-10" />
+              ) : (
+                <>
+                  {stockData?.data?.sectors.reduce((acc, sector) => {
+                    return acc + sector?.holdings?.length;
+                  }, 0)}
+                </>
+              )}
+            </span>
           </div>
         </div>
       </div>

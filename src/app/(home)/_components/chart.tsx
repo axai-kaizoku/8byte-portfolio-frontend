@@ -53,9 +53,9 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export function ChartPieLabelList({ chartData }: { chartData: unknown }) {
-  const dataWithColor = chartData.map((item) => ({
+  const dataWithColor = chartData?.map((item) => ({
     ...item,
-    fill: chartConfig[item.sectorName]?.color ?? "var(--chart-5)",
+    fill: chartConfig?.[item.sectorName]?.color ?? "var(--chart-5)",
   }));
 
   return (
