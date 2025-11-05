@@ -71,7 +71,7 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export function ChartPieLabelList({ chartData }: { chartData: unknown }) {
-  console.log(chartData);
+  // console.log(chartData);
 
   const dataWithColor = chartData.map((item) => ({
     ...item,

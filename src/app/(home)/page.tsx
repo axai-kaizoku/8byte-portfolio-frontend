@@ -1,27 +1,28 @@
 "use client";
 
-import { fetchUsers, getStockData } from "@/server/portfolioActions";
-import { useQuery } from "@tanstack/react-query";
-import { DataTable } from "./data-table";
-import { columns } from "./columns";
 import rawData from "@/lib/mock/data.json";
+import { getStockData } from "@/server/portfolioActions";
+import { useQuery } from "@tanstack/react-query";
 import { ChartPieLabelList } from "./_components/chart";
+import { columns } from "./columns";
+import { DataTable } from "./data-table";
 
 export default function HomePage() {
-  const { data: mockData } = useQuery({
-    queryKey: ["users"],
-    queryFn: fetchUsers,
-  });
+  // const { data: mockData } = useQuery({
+  //   queryKey: ["users"],
+  //   queryFn: fetchUsers,
+  // });
 
   const { data: stockData } = useQuery({
     queryKey: ["stock"],
     queryFn: getStockData,
   });
+  console.log(stockData);
   // if (data?.error) {
   //   return <main>An error occured; Error: {data.message}</main>;
   // }
 
-  const data = rawData.sectors.map((val) => val.holdings).flat(1);
+  const data = stockData?.data?.sectors.map((val) => val.holdings).flat(1) ?? [];
 
   const chartData = rawData.sectors.map((sector) => {
     return {

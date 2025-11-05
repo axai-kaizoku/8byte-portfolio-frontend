@@ -6,6 +6,7 @@ export async function fetchUsers() {
 }
 
 export async function getStockData() {
-  const res = await callAPI<unknown>("http://localhost:8080/api/portfolio", "GET");
+  const res = await callAPI<unknown>(`${BASEURL}/api/portfolio`, "GET");
+  console.log(res);
   return res;
 }
