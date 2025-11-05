@@ -18,6 +18,7 @@ export default function HomePage() {
     queryFn: getStockData,
     refetchInterval: 1000 * 15,
   });
+
   if (stockData?.error || status === "error") {
     return <main>An error occured; Error: {stockData?.message ?? "Unknown Error"}</main>;
   }

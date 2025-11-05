@@ -23,9 +23,6 @@ export type Sector = {
   sectors: {
     sectorName: string;
     totalInvestment: number;
-    totalPresentValue: number;
-    gainLoss: number;
-    gainLossPercentage: number;
     holdings: Holding[];
   }[];
   totalInvestment: number;
@@ -35,6 +32,10 @@ export type Sector = {
 };
 
 export const columns: ColumnDef<Holding>[] = [
+  {
+    accessorKey: "sectorName",
+    header: "Sector",
+  },
   {
     accessorKey: "stockName",
     header: "Stock Name",
