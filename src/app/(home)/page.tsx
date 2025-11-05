@@ -1,13 +1,12 @@
 "use client";
 
-import rawData from "@/lib/mock/data.json";
+import { Skeleton } from "@/components/ui/skeleton";
 import { cn, formatNumber } from "@/lib/utils";
 import { getStockData } from "@/server/portfolioActions";
 import { useQuery } from "@tanstack/react-query";
 import { ChartPieLabelList } from "./_components/chart";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export default function HomePage() {
   const {
@@ -18,6 +17,7 @@ export default function HomePage() {
     queryKey: ["stock"],
     queryFn: getStockData,
     refetchInterval: 1000 * 15,
+    retry: 3,
   });
 
   if (stockData?.error || status === "error") {
