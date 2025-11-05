@@ -2,9 +2,6 @@ import axios, { AxiosError } from "axios";
 
 export type APIResult<T> = { error: boolean; data?: T; status?: number | string; message?: string };
 
-// export const BASEURL = "https://dummyjson.com/users";
-export const BASEURL = "https://eightbyte-portfolio-backend.onrender.com";
-
 export async function callAPI<T>(
   url: string,
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",

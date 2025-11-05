@@ -1,12 +1,10 @@
-import { BASEURL, callAPI } from "./helper";
+import type { Sector } from "@/app/(home)/columns";
+import { callAPI } from "./helper";
+import { env } from "@/env";
 
-export async function fetchUsers() {
-  const res = await callAPI<unknown>(BASEURL + "", "GET");
-  return res;
-}
+const BASEURL = env.NEXT_PUBLIC_BASEURL;
 
 export async function getStockData() {
-  const res = await callAPI<unknown>(`${BASEURL}/api/portfolio`, "GET");
-  console.log(res);
+  const res = await callAPI<Sector>(`${BASEURL}/api/portfolio`, "GET");
   return res;
 }

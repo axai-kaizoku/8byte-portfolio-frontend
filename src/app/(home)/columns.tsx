@@ -1,3 +1,4 @@
+import { formatNumber, formatNumberWithLocaleString } from "@/lib/utils";
 import type { ColumnDef } from "@tanstack/react-table";
 
 export type Holding = {
@@ -14,8 +15,8 @@ export type Holding = {
   presentValue: number;
   gainLoss: number;
   gainLossPercentage: number;
-  peRatio: null;
-  latestEarnings: null;
+  peRatio: number | null;
+  latestEarnings: number | null;
 };
 
 export type Sector = {
@@ -35,70 +36,53 @@ export type Sector = {
 
 export const columns: ColumnDef<Holding>[] = [
   {
-    accessorKey: "stockSymbol",
-    header: "Symbol",
-    cell: ({ row }) => {
-      const stockSymbol: string = row.getValue("stockSymbol") ?? "-";
-      const url = `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX${stockSymbol}`;
-      return (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          {stockSymbol}
-        </a>
-      );
-    },
+    accessorKey: "stockName",
+    header: "Stock Name",
   },
   {
-    accessorKey: "stockName",
-    header: "Name",
-    cell: ({ row }) => {
-      const stockName: string = row.getValue("stockName") ?? "-";
-      const url = `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX${stockName}`;
-      return (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          {stockName}
-        </a>
-      );
-    },
+    accessorKey: "purchasePrice",
+    header: "Purchase Price",
+    cell: ({ row }) => (row.getValue("purchasePrice") ? formatNumber(row.getValue("purchasePrice")) : "-"),
+  },
+  {
+    accessorKey: "quantity",
+    header: "Qty",
+  },
+  {
+    accessorKey: "investment",
+    header: "Investment",
+    cell: ({ row }) => (row.getValue("investment") ? formatNumber(row.getValue("investment")) : "-"),
+  },
+  {
+    accessorKey: "portfolioPercentage",
+    header: "Portfolio %",
+    cell: ({ row }) => (row.getValue("portfolioPercentage") ? formatNumber(row.getValue("portfolioPercentage")) : "-"),
   },
   {
     accessorKey: "exchange",
     header: "Exchange",
   },
   {
-    accessorKey: "sectorName",
-    header: "Sector",
-  },
-  {
-    accessorKey: "purchasePrice",
-    header: "Purchase Price",
-  },
-  {
-    accessorKey: "quantity",
-    header: "Quantity",
-  },
-  {
-    accessorKey: "investment",
-    header: "Investment",
-  },
-  {
-    accessorKey: "portfolioPercentage",
-    header: "Portfolio %",
-  },
-  {
     accessorKey: "cmp",
     header: "CMP",
+    cell: ({ row }) => (row.getValue("cmp") ? formatNumber(row.getValue("cmp")) : "-"),
   },
   {
     accessorKey: "presentValue",
     header: "Present Value",
+    cell: ({ row }) => (row.getValue("presentValue") ? formatNumber(row.getValue("presentValue")) : "-"),
   },
   {
     accessorKey: "gainLoss",
     header: "Gain/Loss",
-  },
-  {
-    accessorKey: "gainLossPercentage",
-    header: "Gain/Loss %",
+    cell: ({ row }) =>
+      row.getValue("gainLoss") ? (
+        <div className={row.getValue("gainLoss") >= 0 ? "text-green-600" : "text-red-600"}>
+          {formatNumber(row.getValue("gainLoss"))}
+        </div>
+      ) : (
+        "-"
+      ),
   },
   {
     accessorKey: "peRatio",
@@ -108,6 +92,7 @@ export const columns: ColumnDef<Holding>[] = [
   {
     accessorKey: "latestEarnings",
     header: "Latest Earnings",
-    cell: ({ row }) => (row.getValue("latestEarnings") ? row.getValue("latestEarnings") : "-"),
+    cell: ({ row }) =>
+      row.getValue("latestEarnings") ? formatNumberWithLocaleString(row.getValue("latestEarnings")) : "-",
   },
 ];
